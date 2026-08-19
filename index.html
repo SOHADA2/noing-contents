@@ -93,15 +93,17 @@
   .rail {
     display:flex; gap:18px; overflow-x:auto; padding:6px 28px 26px;
     margin:0 -28px;
-    scroll-snap-type:x proximity;
+    /* scroll-snap 은 쓰지 않는다. 휠 관성 애니메이션과 서로 되당겨
+       움직임이 튀는 원인이 된다. */
+    overscroll-behavior-x:contain;
     scrollbar-width:none; cursor:grab;
   }
   .rail::-webkit-scrollbar { display:none; }
-  .rail.dragging { cursor:grabbing; scroll-snap-type:none; }
+  .rail.dragging { cursor:grabbing; }
   .rail.dragging * { pointer-events:none; }
 
   .card {
-    flex:0 0 clamp(190px,21vw,240px); scroll-snap-align:start;
+    flex:0 0 clamp(190px,21vw,240px);
     opacity:0; transform:translateY(26px);
     transition:opacity .6s var(--ease), transform .6s var(--ease);
   }
@@ -211,9 +213,9 @@
     </p>
 
     <div class="stats">
-      <div><b>2,212만</b><i>수록 콘텐츠 누적 조회수</i></div>
-      <div class="accent"><b>8건</b><i>100만 조회 돌파</i></div>
-      <div><b>184만</b><i>콘텐츠당 평균 조회수</i></div>
+      <div><b>5,072만</b><i>수록 콘텐츠 누적 조회수</i></div>
+      <div class="accent"><b>25건</b><i>100만 조회 돌파</i></div>
+      <div><b>154만</b><i>콘텐츠당 평균 조회수</i></div>
     </div>
   </header>
 
@@ -223,10 +225,10 @@
       <p class="hint"><kbd>드래그</kbd> 하거나 마우스를 올리고 <kbd>휠</kbd> 을 굴려보세요</p>
     </div>
     <div class="tabs reveal" role="tablist" aria-label="채널 선택">
-      <button class="tab" role="tab" aria-selected="true" data-ch="">전체<span>12</span></button>
-      <button class="tab" role="tab" aria-selected="false" data-ch="life">one_home_life<span>4</span></button>
+      <button class="tab" role="tab" aria-selected="true" data-ch="">전체<span>33</span></button>
+      <button class="tab" role="tab" aria-selected="false" data-ch="life">one_home_life<span>20</span></button>
       <button class="tab" role="tab" aria-selected="false" data-ch="guide">one_home_guide<span>4</span></button>
-      <button class="tab" role="tab" aria-selected="false" data-ch="mag">one_home.mag<span>4</span></button>
+      <button class="tab" role="tab" aria-selected="false" data-ch="mag">one_home.mag<span>9</span></button>
     </div>
     <div class="rail-outer">
       <div class="fade l"></div>
@@ -301,9 +303,39 @@
           <a class="ch" href="https://www.instagram.com/one_home.mag/" target="_blank" rel="noopener">one_home.mag</a>
         </div>
       </article>
-      <article class="card is-hot" data-ch="life">
+      <article class="card is-hot" data-ch="mag">
         <div class="shot">
           <img src="img/08.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>211.9만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home.mag/" target="_blank" rel="noopener">one_home.mag</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="mag">
+        <div class="shot">
+          <img src="img/09.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>205.7만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home.mag/" target="_blank" rel="noopener">one_home.mag</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="mag">
+        <div class="shot">
+          <img src="img/10.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>200.5만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home.mag/" target="_blank" rel="noopener">one_home.mag</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/11.jpg" alt="" loading="lazy" draggable="false">
           <span class="hot">100만+</span>
         </div>
         <div class="meta">
@@ -311,9 +343,189 @@
           <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
         </div>
       </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/12.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>161.3만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="mag">
+        <div class="shot">
+          <img src="img/13.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>158.5만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home.mag/" target="_blank" rel="noopener">one_home.mag</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/14.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>155.6만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="mag">
+        <div class="shot">
+          <img src="img/15.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>152.9만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home.mag/" target="_blank" rel="noopener">one_home.mag</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/16.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>150만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/17.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>138.2만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/18.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>136.6만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/19.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>130.6만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/20.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>129.5만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/21.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>121.6만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/22.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>116.9만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/23.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>113.5만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/24.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>107.6만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card is-hot" data-ch="life">
+        <div class="shot">
+          <img src="img/25.jpg" alt="" loading="lazy" draggable="false">
+          <span class="hot">100만+</span>
+        </div>
+        <div class="meta">
+          <div class="v"><strong>103.4만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card" data-ch="life">
+        <div class="shot">
+          <img src="img/26.jpg" alt="" loading="lazy" draggable="false">
+          
+        </div>
+        <div class="meta">
+          <div class="v"><strong>96.8만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card" data-ch="life">
+        <div class="shot">
+          <img src="img/27.jpg" alt="" loading="lazy" draggable="false">
+          
+        </div>
+        <div class="meta">
+          <div class="v"><strong>91.6만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card" data-ch="life">
+        <div class="shot">
+          <img src="img/28.jpg" alt="" loading="lazy" draggable="false">
+          
+        </div>
+        <div class="meta">
+          <div class="v"><strong>90.9만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
+      <article class="card" data-ch="life">
+        <div class="shot">
+          <img src="img/29.jpg" alt="" loading="lazy" draggable="false">
+          
+        </div>
+        <div class="meta">
+          <div class="v"><strong>85.5만</strong><em>조회</em></div>
+          <a class="ch" href="https://www.instagram.com/one_home_life/" target="_blank" rel="noopener">one_home_life</a>
+        </div>
+      </article>
       <article class="card" data-ch="guide">
         <div class="shot">
-          <img src="img/09.jpg" alt="" loading="lazy" draggable="false">
+          <img src="img/30.jpg" alt="" loading="lazy" draggable="false">
           
         </div>
         <div class="meta">
@@ -323,7 +535,7 @@
       </article>
       <article class="card" data-ch="guide">
         <div class="shot">
-          <img src="img/10.jpg" alt="" loading="lazy" draggable="false">
+          <img src="img/31.jpg" alt="" loading="lazy" draggable="false">
           
         </div>
         <div class="meta">
@@ -333,7 +545,7 @@
       </article>
       <article class="card" data-ch="guide">
         <div class="shot">
-          <img src="img/11.jpg" alt="" loading="lazy" draggable="false">
+          <img src="img/32.jpg" alt="" loading="lazy" draggable="false">
           
         </div>
         <div class="meta">
@@ -343,7 +555,7 @@
       </article>
       <article class="card" data-ch="guide">
         <div class="shot">
-          <img src="img/12.jpg" alt="" loading="lazy" draggable="false">
+          <img src="img/33.jpg" alt="" loading="lazy" draggable="false">
           
         </div>
         <div class="meta">
@@ -453,35 +665,64 @@
     if (e.key === 'ArrowLeft')  { rail.scrollBy({left:-step, behavior:'smooth'}); e.preventDefault(); }
   });
 
-  /* 세로 휠 → 가로 스크롤. 목표 지점을 두고 관성으로 따라가 촤르륵 흐른다. */
-  var target = null, raf = null;
-  function glide() {
+  /* 세로 휠 → 가로 스크롤
+
+     트랙패드는 작은 델타를 촘촘히 보내므로 그대로 더해야 손끝을 따라온다.
+     마우스 휠은 한 번에 100~120씩 뚝뚝 끊겨 오므로 그때만 관성으로 흘린다.
+     둘을 같은 식으로 처리하면 트랙패드가 폭주하거나 휠이 계단처럼 튄다. */
+  var target = null, raf = null, last = 0;
+
+  function glide(now) {
+    if (target === null) { raf = null; return; }
     var max = rail.scrollWidth - rail.clientWidth;
     target = Math.max(0, Math.min(max, target));
+    var dt = Math.min(now - last, 50) / 16.67;      // 프레임 흔들림 보정
+    last = now;
     var gap = target - rail.scrollLeft;
-    if (Math.abs(gap) < 0.6) {
+    if (Math.abs(gap) < 0.5) {
       rail.scrollLeft = target; target = null; raf = null; return;
     }
-    rail.scrollLeft += gap * 0.18;          // 남은 거리의 일부씩 따라간다
+    // 시간 기준 감속 — 화면 주사율이 달라도 같은 속도로 멈춘다
+    rail.scrollLeft += gap * (1 - Math.pow(1 - 0.16, dt));
     raf = requestAnimationFrame(glide);
   }
+
+  function stopGlide() {
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    target = null;
+  }
+
   rail.addEventListener('wheel', function (e) {
     if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;   // 가로 휠은 그대로
     var max = rail.scrollWidth - rail.clientWidth;
     if (max <= 0) return;
-    // 끝에 닿았는데 더 밀면 페이지가 세로로 스크롤되게 놔둔다
-    var at0 = rail.scrollLeft <= 0.5, atEnd = rail.scrollLeft >= max - 0.5;
-    if ((at0 && e.deltaY < 0) || (atEnd && e.deltaY > 0)) { target = null; return; }
+
+    var pos = target === null ? rail.scrollLeft : target;
+    var atStart = pos <= 0.5, atEnd = pos >= max - 0.5;
+    if ((atStart && e.deltaY < 0) || (atEnd && e.deltaY > 0)) {
+      stopGlide();          // 끝에 닿으면 페이지 세로 스크롤에 넘긴다
+      return;
+    }
     e.preventDefault();
-    var step = e.deltaMode === 1 ? e.deltaY * 34 : e.deltaY;   // 줄 단위 휠 보정
-    target = (target === null ? rail.scrollLeft : target) + step * 2.2;
-    if (!raf) raf = requestAnimationFrame(glide);
+
+    var d = e.deltaY;
+    if (e.deltaMode === 1) d *= 16;        // 줄 단위로 오는 브라우저 보정
+    else if (e.deltaMode === 2) d *= rail.clientWidth;
+
+    if (Math.abs(d) < 50) {
+      // 트랙패드 — 관성 없이 그대로 따라간다
+      stopGlide();
+      rail.scrollLeft += d;
+      return;
+    }
+    // 마우스 휠 — 한 칸에 카드 한 장 반 정도만 이동
+    var step = Math.sign(d) * Math.min(Math.abs(d) * 1.1, 340);
+    target = Math.max(0, Math.min(max, pos + step));
+    if (!raf) { last = performance.now(); raf = requestAnimationFrame(glide); }
   }, {passive:false});
+
   /* 드래그를 시작하면 관성은 즉시 멈춘다 */
-  rail.addEventListener('pointerdown', function () {
-    if (raf) { cancelAnimationFrame(raf); raf = null; }
-    target = null;
-  });
+  rail.addEventListener('pointerdown', stopGlide);
 
   /* 양 끝 페이드 */
   var fl = document.querySelector('.fade.l'),
